@@ -1,5 +1,6 @@
 ﻿#include "Source.h"
-
+#define Pow(first) (first * first)
+#define Sqr(first, second) 
 int EditInt() {
 	printf("Введите целочисленное число\n");
 	int editint;
@@ -9,6 +10,24 @@ int EditInt() {
 int mulpdel(int (*f)(int), int a, int b) {
 	return f(a, b);
 
+
+}
+
+int dlot() {
+	int x1 = 0; int y1 = 0; int x2 = 0; int y2 = 0; int a = 0; int b = 0; int c = 0; int z = 0;
+
+
+	scanf_s("%p", &x1); 
+	scanf_s("%p", &y1);
+	scanf_s("%p", &x2); 
+	scanf_s("%p", &y2);
+
+	a = x2 - x1;
+	z = y2 - y1;
+	b = Pow(a);
+	c = Pow(z);
+
+	return b + c;
 }
 int main()
 {
@@ -16,8 +35,11 @@ int main()
 	int editint = 0;
 	int firstnum = 0;
 	int secondnum = 0;
+	int thery = 0;
+	int eit = 0;
 	int* editint_adress = &editint;
 	int (*f)(int, int);
+	int result = 0;
 	
 	while (1)
 	{
@@ -68,6 +90,14 @@ int main()
 			default:
 				break;
 			}
+		case 6:
+			scanf_s("%d", &firstnum);
+			printf("%d", Pow(firstnum) );
+			
+			break;
+		case 7:
+			printf("Длина отрезка равна корню из = %d", dlot());
+			break;
 			
 
 			break;
