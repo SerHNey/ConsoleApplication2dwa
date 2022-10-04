@@ -1,5 +1,6 @@
 #pragma once
 #include<locale.h>
+#include<math.h>
 #include<stdio.h>
 #include<stdlib.h>
 void InitArrayElem1000000();

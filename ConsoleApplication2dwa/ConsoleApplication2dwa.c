@@ -1,6 +1,8 @@
 ﻿#include "Source.h"
-#define Pow(first) (first * first)
-#define Sqr(first, second) 
+#define Pow(first) first * first
+
+
+
 int EditInt() {
 	printf("Введите целочисленное число\n");
 	int editint;
@@ -9,25 +11,32 @@ int EditInt() {
 }
 int mulpdel(int (*f)(int), int a, int b) {
 	return f(a, b);
-
-
 }
 
-int dlot() {
-	int x1 = 0; int y1 = 0; int x2 = 0; int y2 = 0; int a = 0; int b = 0; int c = 0; int z = 0;
+double dlot(int x1, int y1, int x2 ,int y2) {
+
+	return sqrt(Pow((x2 - x1)) + Pow((y2 - y1)), 2);
+}
 
 
-	scanf_s("%p", &x1); 
-	scanf_s("%p", &y1);
-	scanf_s("%p", &x2); 
-	scanf_s("%p", &y2);
+void treyg(double a, double b, double c) {
+	int x1, y1, x2, y2, x3, y3;
 
-	a = x2 - x1;
-	z = y2 - y1;
-	b = Pow(a);
-	c = Pow(z);
+	printf("Введите x1\n");
+	scanf_s("%d", &x1);
+	printf("Введите y1\n");
+	scanf_s("%d", &y1);
+	printf("Введите x2\n");
+	scanf_s("%d", &x2);
+	printf("Введите y2\n");
+	scanf_s("%d", &y2);
+	printf("Введите x1\n");
+	scanf_s("%d", &x3);
+	printf("Введите y1\n");
+	scanf_s("%d", &y3);
+	a = dlot(x1,y1,x2,y2);
+	b = dlot(x2, y2, x3, y3);
 
-	return b + c;
 }
 int main()
 {
@@ -56,7 +65,12 @@ int main()
 			InitArrayElem1000000();
 			break;
 		case 3:
-			free(InitArrayElemInf()); // Инициализация массива произвольной длины и последующим выводом его в консоль
+			printf("Введите размер массива:\n");
+			int size;
+			scanf_s("%d", &size);
+			int* initarray = malloc(size * sizeof(int));
+
+			free(InitArrayElemInf(initarray,size)); // Инициализация массива произвольной длины и последующим выводом его в консоль
 			break;
 		case 4:
 			NDimensionalArray(); // Инициализация массива произвольной длины и выводом его ввиде треугольной матрицы
@@ -96,7 +110,11 @@ int main()
 			
 			break;
 		case 7:
-			printf("Длина отрезка равна корню из = %d", dlot());
+
+			dlot(1,2,3,4);
+			break;
+		case 8:
+			treyg(4,6,5);
 			break;
 			
 
@@ -123,15 +141,11 @@ void InitArrayElem1000000() {
 	system("pause>nul");
 }
 
-int* InitArrayElemInf() {
+int* InitArrayElemInf(int* initarray, int size) {
 	system("cls");
-	printf("Введите размер массива:\n");
-	int size;
-	scanf_s("%d", &size);
-	int* initarray = malloc(size * sizeof(int));
 	for (int i = 0; i < size; i++)
 	{
-		initarray[i] = i;
+		initarray[i] = i+i;
 		printf("%d ", initarray[i]);
 	}
 	return initarray;
