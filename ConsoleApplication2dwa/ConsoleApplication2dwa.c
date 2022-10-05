@@ -1,6 +1,4 @@
 ﻿#include "Source.h"
-#define Pow(first) first * first
-
 
 
 int EditInt() {
@@ -13,31 +11,12 @@ int mulpdel(int (*f)(int), int a, int b) {
 	return f(a, b);
 }
 
-double dlot(int x1, int y1, int x2 ,int y2) {
+double Dl(int x1, int y1, int x2 ,int y2) {
 
 	return sqrt(Pow((x2 - x1)) + Pow((y2 - y1)), 2);
 }
 
 
-void treyg(double a, double b, double c) {
-	int x1, y1, x2, y2, x3, y3;
-
-	printf("Введите x1\n");
-	scanf_s("%d", &x1);
-	printf("Введите y1\n");
-	scanf_s("%d", &y1);
-	printf("Введите x2\n");
-	scanf_s("%d", &x2);
-	printf("Введите y2\n");
-	scanf_s("%d", &y2);
-	printf("Введите x1\n");
-	scanf_s("%d", &x3);
-	printf("Введите y1\n");
-	scanf_s("%d", &y3);
-	a = dlot(x1,y1,x2,y2);
-	b = dlot(x2, y2, x3, y3);
-
-}
 int main()
 {
 	system("chcp 1251>nul");
@@ -53,7 +32,7 @@ int main()
 	while (1)
 	{
 		printf("\nЦелочисленная переменная равна: %d", *editint_adress);
-		printf("\nИзменение целочисленной переменной: 1\nДинамическое создание/удаление массива: 2\nДинамическое создание массива заданной размерностью: 3\nВывод массива ввиде треугольной матрицы: 4\nДействия :5\n");
+		printf("\nИзменение целочисленной переменной: 1\nДинамическое создание/удаление массива: 2\nДинамическое создание массива заданной размерностью: 3\nВывод массива ввиде треугольной матрицы: 4\nДействия: 5\nСложение двух указателей на массив символов: 6\nСтепень числа: 7\nДлина отрезка: 8\n");
 		int choose;
 		scanf_s("%d", &choose);
 		switch (choose)
@@ -81,43 +60,47 @@ int main()
 			switch (choose)
 			{
 			case 1: // Указатель на функцию
-				f = Sum; 
-				scanf_s("%d", &firstnum); scanf_s("%d", &secondnum);
+				scanf_s("%d", &firstnum); 
+				scanf_s("%d", &secondnum);
+				f = Sum;
 				printf("Сумма чисел равна: %d", f(firstnum, secondnum));
 				system("pause>nul");
 				break;
 			case 2:
-				 scanf_s("%d", &firstnum); scanf_s("%d", &secondnum);
-				 printf("%d", mulpdel(Razn,firstnum,&secondnum));
+				printf("Введите первое число:");
+				 scanf_s("%d", &firstnum); 
+				 scanf_s("%d", &secondnum);
+				 printf("Разность чисел равна: %d", mulpdel(Razn,firstnum,secondnum));
 				 system("pause>nul");
 				break;
 			case 3:
-				scanf_s("%d", &firstnum); scanf_s("%d", &secondnum);
-				printf("%d", mulpdel(Multp, firstnum, &secondnum));
+				scanf_s("%d", &firstnum); 
+				scanf_s("%d", &secondnum);
+				printf("Умножение чисел равно: %d", mulpdel(Multp, firstnum, secondnum));
 				system("pause>nul");
 				break;
 			case 4:
-				scanf_s("%d", &firstnum); scanf_s("%d", &secondnum);
-				printf("%d", mulpdel(Delen, firstnum, &secondnum));
+				scanf_s("%d", &firstnum);
+				scanf_s("%d", &secondnum);
+				printf("Деление чисел равно: %f", mulpdel(Delen, firstnum, secondnum));
 				system("pause>nul");
 				break;
 			default:
 				break;
 			}
 		case 6:
+			sqt();
+			break;
+
+		case 7:
 			scanf_s("%d", &firstnum);
 			printf("%d", Pow(firstnum) );
-			
-			break;
-		case 7:
-
-			dlot(1,2,3,4);
 			break;
 		case 8:
-			treyg(4,6,5);
+			printf("Длинна отрезка равна = %f", Dl(1,2,3,4));
 			break;
-			
-
+		case 9:
+			//srav(1, 2, 3, 1, 3, 9);
 			break;
 		default:
 			break;
@@ -181,4 +164,7 @@ void NDimensionalArray() {
 	printf("\n");
 	system("pause");
 }
+
+
+
 
